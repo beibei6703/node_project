@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品列表</title>
+	<link rel="stylesheet" href="../css/style2.css">
+	<script src="../js/jquery.min.js"></script>
+</head>
+<body>
+<div class="header">
+	<div id="logo-div">
+		<img src="../images/topLogo.png" alt="">
+	</div>
+	<div id="menu-div">
+	<ul id="mm1">
+		<li>
+			<a href=""><img src="../images/topmune_08.png" alt=""><span>退出</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/qingchu.png" alt=""><span>清除缓存</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_07.png" alt=""><span>关于 ECSHOP</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_007.png" alt=""><span>关注</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_06.png" alt=""><span>查看网店</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_05.png" alt=""><span>管理员留言</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_04.png" alt=""><span>个人设置</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_03.png" alt=""><span>刷新</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_02.png" alt=""><span>记事本</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/topmune_01.png" alt=""><span>开启向导</span></a>
+		</li>
+		<li class="last-li"style="">
+			<a href=""><img src="../images/topmune_09.png" alt=""><span>更多模板堂产品</span></a>
+		</li>
+	</ul>
+		
+	</div>
+</div>
+<div id="menu2">
+	<ul id="menu2-u">
+		<!-- <li class="frist-menu"></li> -->
+		<li >
+			<a href=""><img src="../images/index-11_07.png" alt=""><span>起始页</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/index-11_41.png" alt=""><span>设置导航栏</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/index-11_09.png" alt=""><span>商店管理</span><span class="num">31</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/dd.png" alt=""><span>订单管理</span><span class="num">0</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/index-11_13.png" alt=""><span>广告管理</span><span class="num">0</span></a>
+		</li>
+		<li>
+			<a href=""><img src="../images/index-11_19.png" alt=""><span>用户评论</span><span class="num">0</span></a>
+		</li>
+		<li><a href="">用户评论</a></li>
+		<li><a href="">商品列表</a></li>
+		<li><a href="">会员列表</a></li>
+		<li><a href="">商店设置</a></li>
+		<li><a href="">移动版</a></li>
+		<li><a href="">服务市场</a></li>
+	</ul>
+</div>
+<div id="left-menu">
+	<div id="tabbar">
+		<p>导航菜单</p>
+	</div>
+	<div id="menu-list">
+		<ul id="menu-ul">
+			<li class="bg1-li">商品管理
+				<ul class="action"style="display: none;">
+					<li><a target="rightCon" href="http://localhost:8080/shoptab">商品列表</a></li>
+					<li><a target="rightCon" href="http://localhost:8080/shopAdd">添加新商品</a></li>
+					<li><a href="">商品分类</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论用户</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论</a></li>
+					<li><a href="">用户评论用</a></li>
+					<li><a href="">用户评论用</a></li>
+				</ul>
+			</li>
+			<li class="bg2-li">商品管理</li>
+			<li class="bg3-li">商品管理</li>
+			<li class="bg4-li">商品管理</li>
+			<li class="bg5-li">商品管理</li>
+			<li class="bg6-li">商品管理</li>
+			<li class="bg7-li">商品管理</li>
+			<li class="bg8-li">商品管理</li>
+			<li class="bg9-li">商品管理</li>
+			<li class="bg10-li">商品管理</li>
+			<li class="bg11-li">商品管理</li>
+			<li class="bg12-li">商品管理</li>
+			<li class="bg13-li">商品管理</li>
+			<li class="bg14-li">商品管理</li>
+			<li class="bg15-li">商品管理</li>
+		</ul>
+	</div>
+</div>
+<div class="scale-div">
+	<img src="../images/arrow_left.gif" alt="">
+</div>
+<iframe id="right-con" src="" frameborder="0" name="rightCon">
+	
+</iframe>
+	
+	
+</body>
+</html>
+<script>
+$("li").click(function(e){
+	var e = e || event;
+	e.stopPropagation();
+})
+$("#menu-ul>li").mouseenter(function(){
+
+	$(this).css({background:"#4b4a4a url(../images/menu_"+($(this).index()+1)+".png) no-repeat 10px center"});
+
+})
+$("#menu-ul>li").mouseleave(function(){
+	$(this).css({background:" url(../images/menu_"+($(this).index()+1)+".png) no-repeat 10px center"})
+})
+	$("#menu-ul>li").click(function(e){
+		var e = e || event;
+		e.stopPropagation();
+		$(this).addClass("on").siblings().removeClass("on");
+		if( $(this).children("ul").css("display") == "none"	){
+			
+			$(this).css({background:"#4b4a4a url(../images/menu1_1.png) no-repeat 10px 0px",height:"553px" });
+			$(this).children("ul").show(100);
+		}else{
+		
+			$(this).css({background:"#4b4a4a url(../images/menu_8.png) no-repeat 10px center",height:"43px"});
+			$(this).children("ul").hide();
+		}
+	})
+	$(".action li a").mouseenter(function(){
+		$(this).css({background:"#ccc",color:"#fff"}).parent().siblings().children("a").css({background:"#575757",color:"#d7d7d7"});
+	})
+
+	
+</script>

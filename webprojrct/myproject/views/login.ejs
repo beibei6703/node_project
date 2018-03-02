@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录页面</title>
+	<link rel="stylesheet" href="../css/style1.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+<div id="shoptop">
+	<img src="../images/shopex.png" alt="">
+	<span></span>
+</div>
+<div class="center-wrap">
+		<div class="loginwrap">
+			<img src="../images/logo.png" alt="">
+		</div>
+	
+		<div class="login-con">
+			<div class="login-panel">
+				<div class="control-first">
+					<i class="iconfont">&#xe697;</i>
+					<input type="text" name="username" id="username" placeholder="用户名">
+				</div>
+				<div class="control-first">
+					<i class="iconfont">&#xe6e6;</i>
+					<input type="password" name="psw" id="psw" placeholder="密码">
+				</div>
+				<div class="control-first">
+					<i class="iconfont">&#xe624;</i>
+					<input type="text" name="yz" class="yz" placeholder="验证码">
+				</div>
+				<div class="control-login">
+					<button id="log" onclick="login()">登录</button>
+				</div>
+				<div class="controls-beside">
+					<input type="checkbox"name="check" class="checks">保存登录信息
+					<a href="" id="forget">忘记密码?</a>
+					<a href="" id="gofirst">去首页看看?</a>
+				</div>
+			</div>
+		</div>
+	
+		
+</div>
+	
+</body>
+</html>
+<script>
+	function login(){
+		$.ajax({
+			url:"/api/login",
+			type:"post",
+			data:{
+				username:$("#username").val(),
+				psw: $("#psw").val()
+			},
+			success:function(res){
+				console.log(res);
+				if(res.status==1){
+					location.href = "/shoplist";
+				}else{
+					console.log(res.message);
+				}
+			}
+		})
+	}
+</script>
