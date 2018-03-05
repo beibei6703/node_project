@@ -6,13 +6,13 @@ ul,li{
 	list-style: none;
 }
 body{
-	width:1075px;
+	width:100%;
 	font-size:12px;
 	min-height: 1450px;
 	
 }
 html,body{
-	/*height:100%;*/
+	height:100%;
 	background: #eeeeee;
 }
 a{
@@ -134,4 +134,8 @@ table{
 .firstcell{
 	 font-weight: bold;
     padding-left: 10px;
+}
+.spa{
+	display: inline-block;
+	float:right;
 }

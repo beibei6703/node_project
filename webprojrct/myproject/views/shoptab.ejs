@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>商品列表</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="../css/style4.css">
 </head>
 <body>
@@ -59,90 +60,7 @@
 					<a href="javascript:listTable.sort('goods_id'); " title="点击对列表排序" >操作</a>
 				</th>
 			</tr>
-			<tr>
-				<td style="background-color: rgb(255, 255, 255);">
-					<input type="checkbox" name="checkboxs" value="279">279
-				</td>
-				<td class="firstcell">
-					<span title="点击修改内容">金伯利钻石</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">432</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">22.00</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/yes.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/no.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/no.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/no.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">100</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">1</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">0</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-				<a href="javascript:;" title="查看"><img src="../images/icon_view.gif" alt=""></a>
-				<a href="javascript:;"title="编辑"><img src="../images/icon_edit.gif" alt=""></a>
-				<a href="javascript:;"title="复制"><img src="../images/icon_copy.gif" alt=""></a>
-				<a href="javascript:;"title="回收站"><img src="../images/icon_trash.gif" alt=""></a>
-				</td>
-				
-			</tr>
-			<tr>
-				<td style="background-color: rgb(255, 255, 255);">
-					<input type="checkbox" name="checkboxs" value="279">278
-				</td>
-				<td class="firstcell">
-					<span title="点击修改内容">橘子</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">222111</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">6.00</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/yes.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/no.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/no.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<img src="../images/no.gif" alt="">
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">100</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">1</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容">0</span>
-				</td>
-				<td align="center" style="background: rgb(255,255,255);" >
-				<a href="javascript:;" title="查看"><img src="../images/icon_view.gif" alt=""></a>
-				<a href="javascript:;"title="编辑"><img src="../images/icon_edit.gif" alt=""></a>
-				<a href="javascript:;"title="复制"><img src="../images/icon_copy.gif" alt=""></a>
-				<a href="javascript:;"title="回收站"><img src="../images/icon_trash.gif" alt=""></a>
-				</td>
-				
-			</tr>
+			
 			<% for(var i=0;i<list.length;i++) { %>
 				<tr>
 				<td style="background-color: rgb(255, 255, 255);">
@@ -155,7 +73,7 @@
 					<span title="点击修改内容"><%= list[i].goods_sn %></span>
 				</td>
 				<td align="center" style="background: rgb(255,255,255);" >
-					<span title="点击修改内容"><%= list[i].goods_price %></span>
+					<span title="点击修改内容"><%= list[i].market_price %></span>
 				</td>
 				<td align="center" style="background: rgb(255,255,255);" >
 					<img src="../images/yes.gif" alt="">
@@ -182,13 +100,39 @@
 				<a href="javascript:;" title="查看"><img src="../images/icon_view.gif" alt=""></a>
 				<a href="javascript:;"title="编辑"><img src="../images/icon_edit.gif" alt=""></a>
 				<a href="javascript:;"title="复制"><img src="../images/icon_copy.gif" alt=""></a>
-				<a href="javascript:;"title="回收站"><img src="../images/icon_trash.gif" alt=""></a>
+				<a href="javascript:;"title="回收站"><img src="../images/icon_trash.gif" alt="" onclick="del('<%=list[i]._id%>')"></a>
 				</td>
 				
 			</tr>
 			<% } %>
 		</table>
+		<%if(pageNo<Math.ceil(num/count)){%>
+		<a href="http://localhost:8080/shoptab?pageNo=<%= pageNo + 1 %>&count=<%=count%>"class="spa"style="margin-right: 30px">下一页</a><%}%>
+		<%if(pageNo>1){%>
+		<a href="http://localhost:8080/shoptab?pageNo=<%= pageNo-1 %>&count=<%=count%>"class="spa" style="margin-right: 30px">上一页</a>
+		<%}%>
 	</div>
 	
 </body>
 </html>
+<script>
+	function del(gid){
+		$.ajax({
+			url:"/api/goods_del",
+			type:"get",
+			data:{
+				gid:gid
+			},
+			success:function(res){
+				console.log(res);
+				if(res.status==1){
+					location.reload();
+				}else{
+					alert(res.message);
+				}
+			}
+		})
+		
+
+	}
+</script>

@@ -20,6 +20,7 @@ html,body{
 	overflow: hidden;
 }
 body{
+	/*display: flex;*/
 	width:100%;
 	font-size: 12px;
 }
@@ -119,6 +120,11 @@ body{
 }
 #menu2 li:hover{
 	background:#4b4a4a;
+}
+#big_div{
+	display: flex;
+	flex: 1;
+
 }
 #left-menu{
 	width:180px;
@@ -263,6 +269,6 @@ body{
 	/*height: 100%;
 	width:100%;*/
 	min-width: 1090px;
-	height:1080px;
+	height:85%;
 	overflow: auto;
 }

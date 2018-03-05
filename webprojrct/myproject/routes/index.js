@@ -16,6 +16,7 @@ router.get("/shoplist",function(req,res){
 })
 router.post("/shoptab",function(req,res){
 	var form = new multiparty.Form();
+
 	form.parse(req, function(err, body, files){
 		var goods_name = body.goods_name[0];
 		var market_price = body.market_price[0];
@@ -41,11 +42,35 @@ router.get("/shopAdd",function(req,res){
 	res.render("shopAdd",{})
 	
 })
-router.get("/shoptab",function(req,res){
-	GoodsModel.find({}, function(err, docs) {
-		res.render("shoptab", {list: docs});
+router.get("/api/goods_del",function(req,res){
+	GoodsModel.findByIdAndRemove({_id:req.query.gid},function(err){
+		var result={
+ 			status : 1,
+ 			message: "商品删除成功"
+ 		}
+ 		if (err) {
+ 			result.status = -119;
+ 			result.message = "商品删除失败";
+ 		}
+ 		res.send(result);
 	})
-})
+	
+});
+router.get("/shoptab",function(req,res){
+	var pageNo = parseInt(req.query.pageNo ||1);
+	var count = parseInt(req.query.count || 2);
+	var query = GoodsModel.find({}).skip((pageNo-1)*count).limit(count).sort({data:-1})
+	query.exec(function(err,docs){
+		if(err){
+			console.log(err);
+		}else{
+			GoodsModel.find({},function(err,results){
+			res.render("shoptab", {list: docs, num:results.length,pageNo:pageNo,count:count});	
+			})
+		}
+		
+	})
+});
 
 router.post("/api/login",function(req,res){
 	var username = req.body.username;
